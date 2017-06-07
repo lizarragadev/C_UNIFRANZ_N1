@@ -48,4 +48,77 @@ public class MainActivity extends AppCompatActivity {
         ivOctocat.startAnimation(animation);
     }
 
+    public void rotate(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.rotate);
+        ivOctocat.startAnimation(animation);
+    }
+
+    public void move(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.move);
+        ivOctocat.startAnimation(animation);
+    }
+
+    public void slideup(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.slide_up);
+        ivOctocat.startAnimation(animation);
+    }
+
+    public void slidedown(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.slide_down);
+        ivOctocat.startAnimation(animation);
+    }
+    public void blink(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.blink);
+        ivOctocat.startAnimation(animation);
+    }
+    public void bounce(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.bounce);
+        ivOctocat.startAnimation(animation);
+    }
+
+    public void crossfade(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in);
+        Animation animation2 = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_out);
+        ivOctocat.startAnimation(animation2);
+        ivOctocat2.startAnimation(animation);
+    }
+    public void sequential(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.sequential);
+        ivOctocat.startAnimation(animation);
+    }
+    public void together(View v) {
+        animation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.together);
+        ivOctocat.startAnimation(animation);
+    }
+
+    public void stop(View v) {
+        ivOctocat.clearAnimation();
+        ivOctocat2.clearAnimation();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
