@@ -11,6 +11,5 @@ public class Pokemon {
     private String Nombre;
     private String Tipo;
     private int Imagen;
-
-
+    
 }
