@@ -209,18 +209,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void compartirTexto() {
-
+        intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        String c = "Unifranz El Alto";
+        intent.putExtra(Intent.EXTRA_TEXT, c);
+        startActivity(intent);
     }
 
     public void compartirImagen() {
-
+        intent = new Intent(Intent.ACTION_SEND);
+        Uri uri = Uri.parse(
+                "android.resource://com.miramicodigo.p5_intents/"+R.drawable.googlemaps
+        );
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        intent.setType("image/*");
+        startActivity(intent);
     }
 
     public void enviarMail() {
+        String [] TO = {"lizarraga.gux@gmail.com"};
+        String [] CC = {"androidlapaz@gmail.com"};
+        String asunto = "Asunto de prueba";
+        String contenido = "Este es el contenido del correo.";
 
+        intent = new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, TO);
+        intent.putExtra(Intent.EXTRA_CC, CC);
+        intent.putExtra(Intent.EXTRA_SUBJECT, asunto);
+        intent.putExtra(Intent.EXTRA_TEXT, contenido);
+
+        startActivity(Intent.createChooser(intent, "Hola chicos!!"));
     }
 
     public void abrirApp() {
-
+        intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName(
+                "com.miramicodigo.aplicacion1",
+                "com.miramicodigo.aplicacion1.MainActivity"
+        );
+        startActivity(intent);
     }
+
+
+
+
+
+
+
+
 }
