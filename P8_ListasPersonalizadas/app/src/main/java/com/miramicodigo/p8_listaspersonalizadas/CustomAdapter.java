@@ -2,6 +2,7 @@ package com.miramicodigo.p8_listaspersonalizadas;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +20,7 @@ import java.util.ArrayList;
  *
  * */
 
-public class CustomAdapter extends BaseAdapter{
+public class CustomAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Pokemon> items;
 
@@ -52,6 +54,20 @@ public class CustomAdapter extends BaseAdapter{
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
+
+        Typeface typeface_bold = Typeface.createFromAsset(
+                context.getAssets(), "fonts/roboto_black.ttf");
+        Typeface typeface_thin = Typeface.createFromAsset(
+                context.getAssets(), "fonts/roboto_thin.ttf");
+
+        viewHolder.itemNombre.setTypeface(typeface_bold);
+        viewHolder.itemTipo.setTypeface(typeface_thin);
+
+
+        Pokemon itemTemp = (Pokemon) getItem(position);
+        viewHolder.itemNombre.setText(itemTemp.getNombre());
+        viewHolder.itemTipo.setText(itemTemp.getTipo());
+        viewHolder.itemImagen.setImageResource(itemTemp.getImagen());
 
         return convertView;
     }
