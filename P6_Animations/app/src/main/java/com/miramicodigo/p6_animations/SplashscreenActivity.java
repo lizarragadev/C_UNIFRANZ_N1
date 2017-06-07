@@ -26,6 +26,7 @@ public class SplashscreenActivity extends AppCompatActivity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_splashscreen);
 
         ivLogo = (ImageView) findViewById(R.id.ivLogotipo);
