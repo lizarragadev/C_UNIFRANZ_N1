@@ -29,6 +29,7 @@ public class SplashscreenActivity extends AppCompatActivity {
         animacion = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animacion);
         ivLogo.startAnimation(animacion);
 
+        //Listener para detectar cuando una animacion termina
         animacion.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
