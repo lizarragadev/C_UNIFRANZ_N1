@@ -55,15 +55,17 @@ public class CustomAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
+        //Carga de las dos tipografias
         Typeface typeface_bold = Typeface.createFromAsset(
                 context.getAssets(), "fonts/roboto_black.ttf");
         Typeface typeface_thin = Typeface.createFromAsset(
                 context.getAssets(), "fonts/roboto_thin.ttf");
 
+        //Asignacion de las tipografias a las vistas
         viewHolder.itemNombre.setTypeface(typeface_bold);
         viewHolder.itemTipo.setTypeface(typeface_thin);
 
-
+        //Se recupera un objeto Pokemon en determinada posicion y lo seteamos al Holder para la lista
         Pokemon itemTemp = (Pokemon) getItem(position);
         viewHolder.itemNombre.setText(itemTemp.getNombre());
         viewHolder.itemTipo.setText(itemTemp.getTipo());
