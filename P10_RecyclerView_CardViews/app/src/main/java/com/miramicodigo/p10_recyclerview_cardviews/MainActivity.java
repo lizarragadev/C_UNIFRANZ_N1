@@ -24,14 +24,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activity = this;
 
         llenarPokemones();
 
+        rvDatos = (RecyclerView) findViewById(R.id.rvContenido);
+        layoutManager = new GridLayoutManager(this, 2);
+        rvDatos.setLayoutManager(layoutManager);
+
+        adapter = new RVAdapter(activity, datos);
+        rvDatos.setAdapter(adapter);
 
     }
 
     public void llenarPokemones() {
-
+        datos = new ArrayList<Pokemon>();
+        Resources resources = getResources();
+        String[] arrayNombres = resources.getStringArray(R.array.nombre);
+        String[] arrayTipos = resources.getStringArray(R.array.tipos);
+        TypedArray arrayImgs = resources.obtainTypedArray(R.array.image);
+        for(int i=0; i < arrayNombres.length; i++) {
+            Pokemon poke = new Pokemon(
+                    arrayNombres[i],
+                    arrayTipos[i],
+                    arrayImgs.getResourceId(i, -1)
+            );
+            datos.add(poke);
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

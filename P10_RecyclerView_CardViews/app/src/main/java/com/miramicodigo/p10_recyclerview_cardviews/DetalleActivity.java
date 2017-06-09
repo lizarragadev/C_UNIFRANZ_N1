@@ -23,5 +23,24 @@ public class DetalleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
 
+        tvNombre = (TextView) findViewById(R.id.tvDetalleNombre);
+        tvHAbilidades = (TextView) findViewById(R.id.tvDetalleHabilidades);
+        ivImagen = (ImageView) findViewById(R.id.ivDetalleImagen);
+
+        Pokemon pokemon = (Pokemon) getIntent().getSerializableExtra("poke");
+        tvNombre.setText(pokemon.getNombre());
+        tvHAbilidades.setText(pokemon.getTipo());
+        ivImagen.setImageResource(pokemon.getImagen());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
