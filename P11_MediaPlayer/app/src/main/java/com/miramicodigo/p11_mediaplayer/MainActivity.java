@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnPause;
     private Button btnStop;
     private ImageView ivAlpha;
-
     private Animation animacion;
-
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -59,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void play(View view) {
         try {
-
+            mediaPlayer.start();
+            ivAlpha.startAnimation(animacion);
+            btnPause.setEnabled(true);
+            btnStop.setEnabled(true);
+            btnPlay.setEnabled(false);
         } catch (Exception e){
             System.out.println("Hubo un error: ");
         }
@@ -67,13 +69,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void pause(View view) {
         if(mediaPlayer.isPlaying()){
-
+            mediaPlayer.pause();
+            ivAlpha.clearAnimation();
+            btnPlay.setEnabled(true);
+            btnStop.setEnabled(false);
         }
     }
 
     public void stop(View view) {
         if(mediaPlayer.isPlaying()){
-            
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            ivAlpha.clearAnimation();
+            initMediaPlayer();
+            initUI();
         }
     }
 }
