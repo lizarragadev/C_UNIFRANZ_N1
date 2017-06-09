@@ -54,13 +54,4 @@ public class DetalleActivity extends AppCompatActivity {
         ivImagen.setImageResource(pokemon.getImagen());
 
     }
-
-
-
-
-
-
-
-
-
 }

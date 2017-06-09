@@ -59,7 +59,6 @@ implements AdapterView.OnItemClickListener {
 
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Pokemon pokeTemp = datos.get(position);
@@ -70,18 +69,4 @@ implements AdapterView.OnItemClickListener {
         intent.putExtra("poke", pokeTemp);
         startActivity(intent);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
